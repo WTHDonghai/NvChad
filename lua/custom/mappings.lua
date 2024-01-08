@@ -5,6 +5,9 @@ M.general = {
     n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
+    -- hop
+    ["<Leader><Leader>"] = {":HopPattern<CR>", opts = { noremap = true } },
+
     -- window split
     ["ss"] = {":split<Return><C-w>W", opts = {silent= true}},
     ["sv"] = {":vsplit<Return><C-w>W", opts={silent=true}},

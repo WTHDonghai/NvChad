@@ -4,6 +4,13 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   -- Override plugin definition options
+  {
+    "phaazon/hop.nvim",
+    lazy = false,
+    config = function()
+      require("hop").setup()
+    end
+  },
 
   {
     "neovim/nvim-lspconfig",
