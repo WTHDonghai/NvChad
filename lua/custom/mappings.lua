@@ -2,15 +2,15 @@
 local M = {}
 
 M.general = {
-    n = {
+  n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
     -- hop
-    ["<Leader><Leader>"] = {":HopPattern<CR>", opts = { noremap = true } },
+    ["<Leader><Leader>"] = { ":HopPattern<CR>", opts = { noremap = true } },
 
     -- window split
-    ["ss"] = {":split<Return><C-w>W", opts = {silent= true}},
-    ["sv"] = {":vsplit<Return><C-w>W", opts={silent=true}},
+    ["ss"] = { ":split<Return><C-w>W", opts = { silent = true } },
+    ["sv"] = { ":vsplit<Return><C-w>W", opts = { silent = true } },
 
     -- window move
     ["sh"] = { "<C-w>h", "Window left" },
@@ -19,7 +19,26 @@ M.general = {
     ["sk"] = { "<C-w>k", "Window up" },
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
+  },
+}
+
+M.terminal = {
+  n = {
+    -- spawn new terms
+    ["<leader>h"] = {
+      function()
+        require("nvchad.term").new { pos = "sp", id = "htoggleTermx", size = 0.3 }
+      end,
+      "New horizontal term",
+    },
+
+    ["<leader>v"] = {
+      function()
+        require("nvchad.term").new { pos = "vsp", id = "vtoggleTermx", size = 0.3 }
+      end,
+      "New vertical term",
+    },
   },
 }
 
